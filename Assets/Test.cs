@@ -6,17 +6,18 @@ using TMPro;
 public class Test : MonoBehaviour
 {
     public TextMeshPro childText;
-
+    int frameCounter = 0;
 
     // Start is called before the first frame update
     void Start()
     {
-        childText.text = "coding is fun";
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        childText.text = $"Frame number is {frameCounter}";
+        frameCounter++;
     }
 }
