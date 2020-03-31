@@ -12,9 +12,22 @@ public class CharacterController : MonoBehaviour
         Vector3 position = transform.position;
 
         if (Input.GetKey(KeyCode.W))
+            position.z += Speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.S))
+            position.z -= Speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.D))
             position.x += Speed * Time.deltaTime;
-        // Because different computers have different frame rates, to get a consistent speed, multiple the general speed (set in unity) by Time.deltaTime
-        // which is basically just 1 / fps
+
+        if (Input.GetKey(KeyCode.A))
+            position.x -= Speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.LeftShift))
+            position.y += Speed * Time.deltaTime;
+
+        if (Input.GetKey(KeyCode.LeftControl))
+            position.y -= Speed * Time.deltaTime;
 
         transform.position = position;
     }
