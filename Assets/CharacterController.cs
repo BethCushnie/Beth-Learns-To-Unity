@@ -21,6 +21,15 @@ public class CharacterController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W))
             position.x++;
 
+        if (Input.GetKeyDown(KeyCode.S))
+            position.x--;
+
+        if (Input.GetKeyDown(KeyCode.A))
+            position.z++;
+
+        if (Input.GetKeyDown(KeyCode.D))
+            position.z--;
+
         transform.position = position;
     }
 }
