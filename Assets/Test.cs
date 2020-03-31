@@ -17,7 +17,11 @@ public class Test : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        childText.text = $"Frame number is {frameCounter}";
-        frameCounter++;
+        if (Input.GetKeyDown(KeyCode.Space))
+            childText.text = "Great job my dude";
+
+        if (Input.GetKeyDown(KeyCode.B))
+            childText.text = "Beth was here";
+
     }
 }
