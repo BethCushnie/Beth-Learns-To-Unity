@@ -9,9 +9,9 @@ namespace BethsGame
         public float Speed;
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
-            transform.position += GetInputVector() * Speed * Time.deltaTime;
+            transform.position += GetInputVector() * Speed * Time.fixedDeltaTime;
 
         }
 
