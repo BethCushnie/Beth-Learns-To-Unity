@@ -6,8 +6,8 @@ namespace BethsGame
 {
     public class CharacterController : MonoBehaviour
     {
-        public float MovementSpeed;
-        public float RotationSpeed;
+        public float MovementSpeed = 1;
+        public float RotationSpeed = 1;
 
         // Update is called once per frame
         void Update()
@@ -15,10 +15,9 @@ namespace BethsGame
             Vector3 movement = GetInputMovementVector() * MovementSpeed * Time.deltaTime;
             transform.position += transform.rotation * movement;
 
-            Vector3 rotation = GetInputRotationVector() * RotationSpeed * Time.deltaTime;
-            transform.position += transform.rotation * rotation;
-
-
+            float rotation = GetInputRotation() * RotationSpeed * Time.deltaTime;
+            transform.Rotate(0, rotation, 0);
+            // transform.Rotate adds those amounts to the degree of rotation of the player
         }
 
         Vector3 GetInputMovementVector()
@@ -46,26 +45,17 @@ namespace BethsGame
             return movement;
         }
 
-        Vector3 GetInputRotationVector()
+        float GetInputRotation()
         {
-            if (Input.GetKey(KeyCode.Q))
-            {
-                Vector3 eulerAngles = transform.eulerAngles;
-                eulerAngles.y++;
-                transform.eulerAngles = eulerAngles;
-                // Because transform.eulerAngles is a property, you can't directly change it. So, you make a variable.
+            float rotation = 0;
 
-                // Another way to do this is:
-                // transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y + 1, transform.eulerAngles.z);
-            }
+            if (Input.GetKey(KeyCode.Q))
+                rotation--;
 
             if (Input.GetKey(KeyCode.E))
-            {
-                Vector3 eulerAngles = transform.eulerAngles;
-                eulerAngles.y--;
-                transform.eulerAngles = eulerAngles;
-            }
+                rotation++;
 
+            return rotation;
         }
     }
 }
