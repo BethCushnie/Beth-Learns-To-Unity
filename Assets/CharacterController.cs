@@ -2,33 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterController : MonoBehaviour
+namespace BethsGame
 {
-    public float Speed;
-
-    // Update is called once per frame
-    void Update()
+    public class CharacterController : MonoBehaviour
     {
-        Vector3 position = transform.position;
+        public float Speed;
 
-        if (Input.GetKey(KeyCode.W))
-            position.z += Speed * Time.deltaTime;
+        // Update is called once per frame
+        void Update()
+        {
+            transform.position += GetInputVector() * Speed * Time.deltaTime;
 
-        if (Input.GetKey(KeyCode.S))
-            position.z -= Speed * Time.deltaTime;
+        }
 
-        if (Input.GetKey(KeyCode.D))
-            position.x += Speed * Time.deltaTime;
+        Vector3 GetInputVector()
+        {
+            Vector3 movement = new Vector3();
 
-        if (Input.GetKey(KeyCode.A))
-            position.x -= Speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.W))
+                movement.z++;
 
-        if (Input.GetKey(KeyCode.LeftShift))
-            position.y += Speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.S))
+                movement.z--;
 
-        if (Input.GetKey(KeyCode.LeftControl))
-            position.y -= Speed * Time.deltaTime;
+            if (Input.GetKey(KeyCode.D))
+                movement.x++;
 
-        transform.position = position;
+            if (Input.GetKey(KeyCode.A))
+                movement.x--;
+
+            if (Input.GetKey(KeyCode.LeftShift))
+                movement.y++;
+
+            if (Input.GetKey(KeyCode.LeftControl))
+                movement.y--;
+
+            return movement;
+        }
     }
 }
