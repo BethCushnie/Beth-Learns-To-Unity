@@ -11,7 +11,9 @@ namespace BethsGame
         // Update is called once per frame
         void FixedUpdate()
         {
-            transform.position += GetInputVector() * Speed * Time.fixedDeltaTime;
+            Vector3 movement = GetInputVector() * Speed * Time.fixedDeltaTime;
+            transform.position += transform.rotation * movement;
+            // I do not understand this but by using fancy 4D vectors movement is now relative to the player's rotation
 
         }
 
