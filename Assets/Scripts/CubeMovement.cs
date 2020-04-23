@@ -16,15 +16,16 @@ public class CubeMovement : MonoBehaviour
 
     void Update()
     {
-        if (Delay < Time.time)
-        {
-            if (transform.position.y > MaxHeight)
-                MovementSpeed = -Speed;
+        if (Time.time <= Delay)
+            return;
 
-            if (transform.position.y < 0)
-                MovementSpeed = +Speed;
 
-            transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
-        }
+        if (transform.position.y > MaxHeight)
+            MovementSpeed = -Speed;
+
+        if (transform.position.y < 0)
+            MovementSpeed = +Speed;
+
+        transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
     }
 }
