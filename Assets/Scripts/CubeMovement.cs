@@ -6,6 +6,7 @@ public class CubeMovement : MonoBehaviour
 {
 
     public float Speed;
+    public float DistanceBeforeTurning;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,14 @@ public class CubeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position += Vector3.forward * Speed * Time.deltaTime;
+        if (CubeIsOutsideRange())
+            Speed *= -1;
+
+        transform.position += Vector3.up * Speed * Time.deltaTime;
+    }
+
+    bool CubeIsOutsideRange()
+    {
+        return transform.position.y > DistanceBeforeTurning;
     }
 }
