@@ -16,6 +16,6 @@ public class CubeMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.forward;
+        transform.position += Vector3.forward * Speed * Time.deltaTime;
     }
 }
