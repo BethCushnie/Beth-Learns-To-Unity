@@ -4,27 +4,23 @@ using UnityEngine;
 
 public class CubeMovement : MonoBehaviour
 {
-
     public float Speed;
-    public float DistanceBeforeTurning;
+    public float MaxHeight;
 
-    // Start is called before the first frame update
-    void Start()
+    private float MovementSpeed;
+    private void Start()
     {
-        
+        MovementSpeed = Speed;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (CubeIsOutsideRange())
-            Speed *= -1;
+        if (transform.position.y > MaxHeight)
+            MovementSpeed = -Speed;
+        
+        if (transform.position.y < 0)
+            MovementSpeed = +Speed;
 
-        transform.position += Vector3.up * Speed * Time.deltaTime;
-    }
-
-    bool CubeIsOutsideRange()
-    {
-        return transform.position.y > DistanceBeforeTurning;
+        transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
     }
 }
