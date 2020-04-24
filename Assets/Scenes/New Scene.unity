@@ -152,6 +152,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CubePrefab: {fileID: 3293615939504648702, guid: 8ab1f330bdf88c9429823ae9a1eabcee,
     type: 3}
+  NumberOfCubes: 100
+  MasterAmplitude: 5
+  MasterSpeed: 3
+  MasterVerticalShift: 10
+  MasterPhaseShift: 5
 --- !u!4 &1223495968
 Transform:
   m_ObjectHideFlags: 0
