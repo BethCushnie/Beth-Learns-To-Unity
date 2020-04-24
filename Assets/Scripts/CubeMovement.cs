@@ -8,8 +8,8 @@ public class CubeMovement : MonoBehaviour
 
     public float Amplitude = 1;
     public float VerticalShift;
-    public float k = 1;
-    public float d;
+    public float Speed = 1;
+    public float PhaseShift;
 
     void Update()
     {
@@ -20,6 +20,6 @@ public class CubeMovement : MonoBehaviour
 
     float GetCubeHeight(float time)
     {
-        return Amplitude * Mathf.Sin(k * time + d) + VerticalShift;
+        return Amplitude * Mathf.Sin(Speed * (time + PhaseShift)) + VerticalShift;
     }
 }

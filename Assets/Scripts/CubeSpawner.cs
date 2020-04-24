@@ -32,12 +32,14 @@ public class CubeSpawner : MonoBehaviour
     }
 
     public float MasterAmplitude = 5;
+    public float MasterSpeed = 5;
+    public float MasterVerticalShift = 5;
+    public float MasterPhaseShift = 5;
 
     private void OnValidate()
     {
         LoopOverCubes();
     }
-    // runs whenever you touch the inspector for the object
 
     void LoopOverCubes()
     {
@@ -46,6 +48,9 @@ public class CubeSpawner : MonoBehaviour
             CubeMovement cubeMovement = AllMovingCubes[i];
 
             cubeMovement.Amplitude = MasterAmplitude;
+            cubeMovement.Speed = MasterSpeed;
+            cubeMovement.VerticalShift = MasterVerticalShift;
+            cubeMovement.PhaseShift = MasterPhaseShift;
         }
     } 
 }
