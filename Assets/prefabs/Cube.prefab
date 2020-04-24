@@ -109,5 +109,6 @@ MonoBehaviour:
   MovementDelay: 0
   Amplitude: 2
   VerticalShift: 2
-  k: 1
-  d: 0
+  Speed: 1
+  PhaseShift: 0
+  Renderer: {fileID: 3293615939504648697}
