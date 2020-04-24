@@ -8,7 +8,7 @@ public class CubeSpawner : MonoBehaviour
     public int NumberOfCubes;
 
 
-    public List<CubeMovement> AllMovingCubes = new List<CubeMovement>();
+    List<CubeMovement> AllMovingCubes = new List<CubeMovement>();
 
     void Start()
     {
@@ -31,19 +31,21 @@ public class CubeSpawner : MonoBehaviour
             LoopOverCubes();
     }
 
+    public float MasterAmplitude = 5;
+
+    private void OnValidate()
+    {
+        LoopOverCubes();
+    }
+    // runs whenever you touch the inspector for the object
+
     void LoopOverCubes()
     {
         for (int i = 0; i < AllMovingCubes.Count; i++)
         {
             CubeMovement cubeMovement = AllMovingCubes[i];
 
-            cubeMovement.Amplitude++;
+            cubeMovement.Amplitude = MasterAmplitude;
         }
-    }
-
-    // think of <> as "of", and [] as "at"
-
-    // A list is a collection of many different objects of the same type. In this case, it lists all the cubes that are created.
-    // It also means that you can now affect that list all together. 
-    // LoopOverCubes is a loop function thing. It loops over the entire list, so you can set the properties of all the cubes at once.
+    } 
 }
