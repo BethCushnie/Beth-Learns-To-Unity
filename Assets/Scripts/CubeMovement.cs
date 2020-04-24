@@ -6,7 +6,7 @@ public class CubeMovement : MonoBehaviour
 {
     public float Speed;
     public float MaxHeight;
-    public float Delay;
+    public float MovementDelay;
 
     private float MovementSpeed;
     private void Start()
@@ -16,7 +16,7 @@ public class CubeMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.time <= Delay)
+        if (Time.time <= MovementDelay)
             return;
 
 
