@@ -11,9 +11,12 @@ public class CubeMovement : MonoBehaviour
 
     void Update()
     {
-        Vector3 position = transform.position;
-        position.y = GetCubeHeight(Time.time);
-        transform.position = position;
+        if (Time.time > MovementDelay)
+        {
+            Vector3 position = transform.position;
+            position.y = GetCubeHeight(Time.time - MovementDelay);
+            transform.position = position;
+        }
     }
 
     float GetCubeHeight(float time)
