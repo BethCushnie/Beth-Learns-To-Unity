@@ -31,6 +31,7 @@ public class CubeSpawner : MonoBehaviour
             LoopOverCubes();
     }
 
+    [Header("Master Variables")]
     public float MasterAmplitude = 5;
     public float MasterSpeed = 5;
     public float MasterVerticalShift = 5;
