@@ -16,16 +16,13 @@ public class CubeMovement : MonoBehaviour
 
     void Update()
     {
-        if (Time.time <= MovementDelay)
-            return;
+        Vector3 position = transform.position;
+        position.y = GetCubeHeight(Time.time);
+        transform.position = position;
+    }
 
-
-        if (transform.position.y > MaxHeight)
-            MovementSpeed = -Speed;
-
-        if (transform.position.y < 0)
-            MovementSpeed = +Speed;
-
-        transform.position += Vector3.up * MovementSpeed * Time.deltaTime;
+    float GetCubeHeight(float time)
+    {
+        return Mathf.Sin(time);
     }
 }
