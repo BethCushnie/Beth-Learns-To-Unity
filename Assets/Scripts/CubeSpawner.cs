@@ -7,6 +7,11 @@ public class CubeSpawner : MonoBehaviour
     public GameObject CubePrefab;
     public int NumberOfCubes;
 
+    [Header("Master Variables")]
+    public float MasterAmplitude = 5;
+    public float MasterSpeed = 5;
+    public float MasterVerticalShift = 5;
+    public float MasterPhaseShift = 5;
 
     List<CubeMovement> AllMovingCubes = new List<CubeMovement>();
 
@@ -23,19 +28,9 @@ public class CubeSpawner : MonoBehaviour
 
             AllMovingCubes.Add(cubeMovement);
         }
-    }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Space))
-            LoopOverCubes();
+        LoopOverCubes();
     }
-
-    [Header("Master Variables")]
-    public float MasterAmplitude = 5;
-    public float MasterSpeed = 5;
-    public float MasterVerticalShift = 5;
-    public float MasterPhaseShift = 5;
 
     private void OnValidate()
     {
