@@ -34,7 +34,9 @@ public class CubeMovement : MonoBehaviour
 
     float GetAppropriateHueForCurrentHeight(float height)
     {
-        DebugHue = Mathf.Abs(height / (Mathf.Abs(Amplitude) + Mathf.Abs(VerticalShift)));
-        return DebugHue;
+        float max = Amplitude + VerticalShift;
+        float min = -Amplitude + VerticalShift;
+
+        return (height - min) / (max - min);
     }
 }
