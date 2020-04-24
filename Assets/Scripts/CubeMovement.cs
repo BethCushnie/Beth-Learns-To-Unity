@@ -6,21 +6,20 @@ public class CubeMovement : MonoBehaviour
 {
     public float MovementDelay;
 
-    public float Amplitude;
+    public float Amplitude = 1;
     public float VerticalShift;
+    public float k = 1;
+    public float d;
 
     void Update()
     {
-        if (Time.time > MovementDelay)
-        {
-            Vector3 position = transform.position;
-            position.y = GetCubeHeight(Time.time - MovementDelay);
-            transform.position = position;
-        }
+        Vector3 position = transform.position;
+        position.y = GetCubeHeight(Time.time - MovementDelay);
+        transform.position = position;
     }
 
     float GetCubeHeight(float time)
     {
-        return Amplitude * Mathf.Sin(time) + VerticalShift;
+        return Amplitude * Mathf.Sin(k * time + d) + VerticalShift;
     }
 }

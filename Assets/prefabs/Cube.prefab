@@ -106,8 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b864f4ea9280d5c4d8bcec7865f86e8b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 10
-  MaxHeight: 20
   MovementDelay: 0
   Amplitude: 2
   VerticalShift: 2
+  k: 1
+  d: 0
