@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class CubeMovement : MonoBehaviour
 {
-    public float Speed;
-    public float MaxHeight;
     public float MovementDelay;
 
     public float Amplitude;
     public float VerticalShift;
-
-    private float MovementSpeed;
-    private void Start()
-    {
-        MovementSpeed = Speed;
-    }
 
     void Update()
     {
