@@ -8,6 +8,9 @@ public class CubeMovement : MonoBehaviour
     public float MaxHeight;
     public float MovementDelay;
 
+    public float Amplitude;
+    public float VerticalShift;
+
     private float MovementSpeed;
     private void Start()
     {
@@ -23,6 +26,6 @@ public class CubeMovement : MonoBehaviour
 
     float GetCubeHeight(float time)
     {
-        return Mathf.Sin(time);
+        return Amplitude * Mathf.Sin(time) + VerticalShift;
     }
 }

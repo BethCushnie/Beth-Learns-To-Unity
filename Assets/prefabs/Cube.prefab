@@ -109,3 +109,5 @@ MonoBehaviour:
   Speed: 10
   MaxHeight: 20
   MovementDelay: 0
+  Amplitude: 2
+  VerticalShift: 2
