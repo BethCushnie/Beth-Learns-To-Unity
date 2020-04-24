@@ -107,5 +107,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 1
-  MaxHeight: 5
-  Delay: 5
+  MaxHeight: 20
+  MovementDelay: 0
