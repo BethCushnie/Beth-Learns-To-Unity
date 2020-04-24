@@ -13,17 +13,28 @@ public class CubeMovement : MonoBehaviour
 
     public MeshRenderer Renderer;
 
+    public float Saturation = 1;
+    public float Value = 1;
+
+    public float DebugHue;
+
     void Update()
     {
         Vector3 position = transform.position;
         position.y = GetCubeHeight(Time.time - MovementDelay);
         transform.position = position;
 
-        Renderer.material.color = new Color(1, 0, 0);
+        Renderer.material.color = Color.HSVToRGB(GetAppropriateHueForCurrentHeight(position.y), Saturation, Value);
     }
 
     float GetCubeHeight(float time)
     {
         return Amplitude * Mathf.Sin(Speed * (time + PhaseShift)) + VerticalShift;
+    }
+
+    float GetAppropriateHueForCurrentHeight(float height)
+    {
+        DebugHue = Mathf.Abs(height / (Mathf.Abs(Amplitude) + Mathf.Abs(VerticalShift)));
+        return DebugHue;
     }
 }
