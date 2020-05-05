@@ -5,7 +5,8 @@ using UnityEngine;
 public class CubeSpawner : MonoBehaviour
 {
     public GameObject CubePrefab;
-    public int NumberOfCubes;
+    public int NumberOfCubesAlongXAxis = 1;
+    public int NumberOfCubesAlongZAxis = 1;
 
     [Header("Master Variables")]
     public float MasterAmplitude = 5;
@@ -17,16 +18,19 @@ public class CubeSpawner : MonoBehaviour
 
     void Start()
     {
-        for (int i = 0; i < NumberOfCubes; i++)
+        for (int i = 0; i < NumberOfCubesAlongXAxis; i++)
         {
-            GameObject cubeObject = Instantiate(CubePrefab);
+            for (int m = 0; m < NumberOfCubesAlongZAxis; m++)
+            {
+                GameObject cubeObject = Instantiate(CubePrefab);
 
-            cubeObject.transform.position = new Vector3(i, 0, 0);
+                cubeObject.transform.position = new Vector3(i, 0, m);
 
-            CubeMovement cubeMovement = cubeObject.GetComponent<CubeMovement>();
-            cubeMovement.MovementDelay = i;
+                CubeMovement cubeMovement = cubeObject.GetComponent<CubeMovement>();
+                cubeMovement.MovementDelay = i;
 
-            AllMovingCubes.Add(cubeMovement);
+                AllMovingCubes.Add(cubeMovement);
+            }
         }
 
         LoopOverCubes();
