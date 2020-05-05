@@ -16,7 +16,7 @@ public class CubeMovement : MonoBehaviour
     public float Saturation = 1;
     public float Value = 1;
 
-    public float DebugHue;
+    [HideInInspector] public Vector2Int Index;
 
     void Update()
     {
