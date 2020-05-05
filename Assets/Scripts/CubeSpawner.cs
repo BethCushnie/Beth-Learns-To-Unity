@@ -27,7 +27,7 @@ public class CubeSpawner : MonoBehaviour
                 cubeObject.transform.position = new Vector3(i, 0, m);
 
                 CubeMovement cubeMovement = cubeObject.GetComponent<CubeMovement>();
-                cubeMovement.MovementDelay = i;
+                cubeMovement.MovementDelay = i + m;
 
                 AllMovingCubes.Add(cubeMovement);
             }
